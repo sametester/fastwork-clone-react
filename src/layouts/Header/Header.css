@@ -1,0 +1,6 @@
+.header-bar {
+  color: var(--logo-color);
+}
+.header-bar > * {
+  color: var(--logo-color);
+}

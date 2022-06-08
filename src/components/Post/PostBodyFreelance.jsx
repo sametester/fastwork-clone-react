@@ -1,0 +1,107 @@
+import { Avatar, Button, Typography } from '@mui/material';
+import { Box } from '@mui/system';
+import { images } from '../ImagesList/Carousel';
+import ChatIcon from '@mui/icons-material/Chat';
+import BadgeIcon from '@mui/icons-material/Badge';
+import DoneIcon from '@mui/icons-material/Done';
+import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
+
+function PostBodyFreelance({ post }) {
+  const freelanceInfo = post?.User?.FreelanceInfos?.[0];
+  const temp = post?.User;
+
+  return (
+    <>
+      <Typography // TODO: Package List
+        component="h2"
+        sx={{
+          fontSize: '2rem',
+          textAlign: 'start',
+          color: '#7900FF',
+          marginTop: '1.125rem',
+        }}
+      >
+        ฟรีแลนซ์
+      </Typography>
+      <Box
+        component="div"
+        sx={{
+          border: '1px solid #000',
+          borderRadius: '5px',
+          marginTop: '1.125rem',
+        }}
+      >
+        <Box sx={{ display: 'flex' }}>
+          <Avatar
+            sx={{
+              borderRadius: '50%',
+              width: '6.5rem',
+              height: '6.5rem',
+              margin: '1.875rem',
+            }}
+            referrerPolicy="no-referrer"
+            src={post?.User?.profileImage} // ! Image Profile
+            alt="avatar"
+          />
+          <Box>
+            <Typography // TODO: Freelance Name
+              component="p"
+              sx={{
+                fontSize: '1.125rem',
+                marginTop: '1.875rem',
+                textAlign: 'start',
+              }}
+            >
+              {freelanceInfo?.displayName}
+            </Typography>
+            <Typography // TODO: Freelance Description
+              component="p"
+              sx={{
+                fontSize: '1.125rem',
+                textAlign: 'start',
+                marginTop: '0.8rem',
+              }}
+            >
+              {freelanceInfo?.profileDesc}
+            </Typography>
+          </Box>
+        </Box>
+        <Typography component="hr" sx={{ margin: '1rem' }}></Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
+          <Box>
+            <BadgeIcon />
+            <Typography
+              component="p"
+              sx={{ color: '#7900FF', fontWeight: 'bold' }}
+            >
+              02/2020
+            </Typography>
+            <Typography component="p">เป็นสมาชิก</Typography>
+          </Box>
+          <Box sx={{ marginBottom: '1.125rem' }}>
+            <DoneIcon />
+            <Typography
+              component="p"
+              sx={{ color: '#7900FF', fontWeight: 'bold' }}
+            >
+              100%
+            </Typography>
+            <Typography component="p">งานสำเร็จ</Typography>
+          </Box>
+          <Box>
+            <LocalGroceryStoreIcon />
+            <Typography
+              component="p"
+              sx={{ color: '#7900FF', fontWeight: 'bold' }}
+            >
+              30 ครั้ง
+            </Typography>
+            <Typography component="p">ขายได้</Typography>
+          </Box>
+        </Box>
+      </Box>
+    </>
+  );
+}
+
+export default PostBodyFreelance;
